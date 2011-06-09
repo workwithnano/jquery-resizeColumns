@@ -8,63 +8,6 @@
 //
 // It was adapted into this jQuery plugin, still under development
 
-function preventEvent(e) {
-  var ev = e || window.event;
-  if (ev.preventDefault) ev.preventDefault();
-  else ev.returnValue = false;
-  if (ev.stopPropagation)
-      ev.stopPropagation();
-  return false;
-}
-
-function getStyle(x, styleProp) {
-    if (x.currentStyle)
-        var y = x.currentStyle[styleProp];
-    else if (window.getComputedStyle)
-        var y = document.defaultView.getComputedStyle(x,null).getPropertyValue(styleProp);
-    return y;
-}
-
-function getWidth(x) {
-    if (x.currentStyle)
-        // in IE
-        var y = x.clientWidth - parseInt(x.currentStyle["paddingLeft"]) - parseInt(x.currentStyle["paddingRight"]);
-        // for IE5: var y = x.offsetWidth;
-    else if (window.getComputedStyle)
-        // in Gecko
-        var y = document.defaultView.getComputedStyle(x,null).getPropertyValue("width");
-    return y || 0;
-}
-
-function setCookie (name, value, expires, path, domain, secure) {
-    document.cookie = name + "=" + escape(value) +
-        ((expires) ? "; expires=" + expires : "") +
-        ((path) ? "; path=" + path : "") +
-        ((domain) ? "; domain=" + domain : "") +
-        ((secure) ? "; secure" : "");
-}
-
-function getCookie(name) {
-    var cookie = " " + document.cookie;
-    var search = " " + name + "=";
-    var setStr = null;
-    var offset = 0;
-    var end = 0;
-    if (cookie.length > 0) {
-        offset = cookie.indexOf(search);
-        if (offset != -1) {
-            offset += search.length;
-            end = cookie.indexOf(";", offset)
-            if (end == -1) {
-                end = cookie.length;
-            }
-            setStr = unescape(cookie.substring(offset, end));
-        }
-    }
-    return(setStr);
-}
-
-// Turn this shit into a jQuery plugin
 (function($){
 
   jQuery.fn.resizeColumns = function() {
@@ -197,7 +140,7 @@ function getCookie(name) {
   
           preventEvent(e);
       }
-  
+      
       // prepare table header to be draggable
       // it runs during class creation
       for (var i=0; i<dragColumns.length; i++) {
@@ -210,6 +153,67 @@ function getCookie(name) {
           "</div>";
         // BUGBUG: calculate real border width instead of 5px!!!
         dragColumns[i].firstChild.firstChild.onmousedown = this.startColumnDrag;
+      }
+      
+      //////////////////////////////
+      // Helper functions for plugin
+      //////////////////////////////
+      
+      // Prevent default function
+      preventEvent = function(e) {
+        var ev = e || window.event;
+        if (ev.preventDefault) ev.preventDefault();
+        else ev.returnValue = false;
+        if (ev.stopPropagation)
+            ev.stopPropagation();
+        return false;
+      }
+      
+      getStyle = function(x, styleProp) {
+          if (x.currentStyle)
+              var y = x.currentStyle[styleProp];
+          else if (window.getComputedStyle)
+              var y = document.defaultView.getComputedStyle(x,null).getPropertyValue(styleProp);
+          return y;
+      }
+
+      getWidth = function(x) {
+          if (x.currentStyle)
+              // in IE
+              var y = x.clientWidth - parseInt(x.currentStyle["paddingLeft"]) - parseInt(x.currentStyle["paddingRight"]);
+              // for IE5: var y = x.offsetWidth;
+          else if (window.getComputedStyle)
+              // in Gecko
+              var y = document.defaultView.getComputedStyle(x,null).getPropertyValue("width");
+          return y || 0;
+      }
+
+      setCookie = function(name, value, expires, path, domain, secure) {
+          document.cookie = name + "=" + escape(value) +
+              ((expires) ? "; expires=" + expires : "") +
+              ((path) ? "; path=" + path : "") +
+              ((domain) ? "; domain=" + domain : "") +
+              ((secure) ? "; secure" : "");
+      }
+
+      getCookie = function(name) {
+          var cookie = " " + document.cookie;
+          var search = " " + name + "=";
+          var setStr = null;
+          var offset = 0;
+          var end = 0;
+          if (cookie.length > 0) {
+              offset = cookie.indexOf(search);
+              if (offset != -1) {
+                  offset += search.length;
+                  end = cookie.indexOf(";", offset)
+                  if (end == -1) {
+                      end = cookie.length;
+                  }
+                  setStr = unescape(cookie.substring(offset, end));
+              }
+          }
+          return(setStr);
       }
     }
     
