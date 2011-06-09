@@ -25,7 +25,9 @@
   		</tr>
   	</tbody>
   </table>
-  <p><span id="column_array_output"></span></p>
+  <p id="column_array_output">
+    Column widths update here
+  </p>
   
   <!-- Grab Google CDN's jQuery. fall back to local if necessary -->
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
@@ -35,8 +37,8 @@
       $(document).ready(function() {
 
         $('table#gpas').resizeColumns();
-        $('table#gpas').live('change',function(event,widths_string){
-        	$('span#column_array_output').text(widths_string);
+        $('table#gpas').live('change',function(event,widths_array){
+        	$('#column_array_output').text(widths_array.toString());
         });
 
       });
