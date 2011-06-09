@@ -1,9 +1,12 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   
 </head>
+
 <body>
+  
   <table id="gpas" border="1">
   	<thead>
   		<tr>
@@ -34,14 +37,15 @@
   <script>!window.jQuery && document.write('<script src="js/jquery-1.4.2.min.js"><\/script>')</script>
   <script src="jq.resizeColumns.js"></script>
   <script type="text/javascript">
-      $(document).ready(function() {
+    $(document).ready(function() {
 
-        $('table#gpas').resizeColumns();
-        $('table#gpas').live('change',function(event,widths_array){
-        	$('#column_array_output').text(widths_array.toString());
-        });
-
+      $('table#gpas').resizeColumns();
+      $('table#gpas').live('change',function(event,widths_array){
+      	$('#column_array_output').text(widths_array.toString());
       });
-    </script>
+
+    });
+  </script>
+    
 </body>
 </html>
