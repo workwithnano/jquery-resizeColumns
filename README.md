@@ -1,5 +1,7 @@
 # resizeColumns jQuery Plugin
 
+This jQuery plugin lets you enable super-simple column resizing on any HTML table. It also provides callbacks and javascript cookie writing to store the column widths for future use if desired.
+
 Based off of the simple, working code provided at http://bz.var.ru/comp/web/resizable.html by "bz" (I don't speak Russian.)
 
 ## Demo & Examples
