@@ -40,7 +40,7 @@ Someday soon!
 ``` js
 $('table#gpas').resizeColumns();
 $('table#gpas').live('change',function(event,widths_string){
-	$('span#column_array_output').text(widths_string.split("+"));
+	$('span#column_array_output').text(widths_string);
 });
 ```
 

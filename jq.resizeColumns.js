@@ -6,21 +6,8 @@
 // The code here was initially developed by "bz"
 // and found at http://bz.var.ru/comp/web/resizable.html
 //
-// It was adapted into this jQuery plugin, still under developmentf
+// It was adapted into this jQuery plugin, still under development
 
-
-
-
-//
-// Resizable Table Columns.
-//  version: 1.0
-//
-// (c) 2006, bz
-//
-// 25.12.2006:  first working prototype
-// 26.12.2006:  now works in IE as well but not in Opera (Opera is @#$%!)
-// 27.12.2006:  changed initialization, now just make class='resizable' in table and load script
-//
 function preventEvent(e) {
   var ev = e || window.event;
   if (ev.preventDefault) ev.preventDefault();
@@ -76,23 +63,6 @@ function getCookie(name) {
     }
     return(setStr);
 }
-
-//============================================================
-//
-// Usage. In your html code just include the follow:
-//
-//============================================================
-// <table id='objectId'>
-// ...
-// </table>
-// < script >
-// var xxx = new ColumnDrag( 'objectId' );
-// < / script >
-//============================================================
-//
-// NB! spaces was used to prevent browser interpret it!
-//
-//============================================================
 
 // Turn this shit into a jQuery plugin
 (function($){
@@ -188,7 +158,7 @@ function getCookie(name) {
           document.cookie = self.id + '-width=' + colWidth +
               '; expires=' + expire.toGMTString();
           
-          $("#"+self.id).trigger("change",[colWidth]);
+          $("#"+self.id).trigger("change",[colWidth.split("+")]);
   
           preventEvent(e);
       }
