@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  
+</head>
+<body>
+  <table id="gpas" border="1">
+  	<thead>
+  		<tr>
+  			<th>Name</th>
+  			<th>Age</th>
+  			<th>GPA</th>
+  		</tr>
+  	</thead>
+  	<tbody>
+  		<tr>
+  			<td>Nano</td>
+  			<td>25</td>
+  			<td>5.0 baby</td>
+  		</tr>
+  		<tr>
+  			<td>Enia</td>
+  			<td>25</td>
+  			<td>1.0 boohoo</td>
+  		</tr>
+  	</tbody>
+  </table>
+  <p><span id="column_array_output"></span></p>
+  
+  <!-- Grab Google CDN's jQuery. fall back to local if necessary -->
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+  <script>!window.jQuery && document.write('<script src="js/jquery-1.4.2.min.js"><\/script>')</script>
+  <script src="jq.resizeColumns.js"></script>
+  <script type="text/javascript">
+      $(document).ready(function() {
+
+        $('table#gpas').resizeColumns();
+        $('table#gpas').live('change',function(event,widths_string){
+        	$('span#column_array_output').text(widths_string);
+        });
+
+      });
+    </script>
+</body>
+</html>

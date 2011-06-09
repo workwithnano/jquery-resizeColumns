@@ -4,7 +4,7 @@ Based off of the simple, working code provided at http://bz.var.ru/comp/web/resi
 
 ## Demo & Examples
 
-Someday soon!
+See <code>example.html</code>
 
 ## Example Usage
 
