@@ -55,4 +55,4 @@ This plugin is dual licensed under the MIT and GPL licenses, just like jQuery it
 
 ## Credits
 
-Kudos to [Paul Irish](http://paulirish.com/) for his inspiring snippet in [jQuery 1.4 Hawtness #1](http://jquery14.com/day-05/jquery-1-4-hawtness-1-with-paul-irish) and everyone from [#jquery](http://webchat.freenode.net/?channels=jquery) for the tips, ideas and patches. Much â™¥ to temp01 for his major contributions.
+Thanks to "bz" for the initial code. Thanks to an unknown engineer at Justin.TV who insulted my code test by telling the recruiter to pass on me on grounds of "bad taste". That really upset me, and kicked my ass into programming overdrive.
